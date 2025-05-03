@@ -1,0 +1,14 @@
+.marqueecls {
+  animation: scrollleft 20s linear infinite;
+  display: flex;
+  white-space: nowrap;
+}
+
+@keyframes scrollleft {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
