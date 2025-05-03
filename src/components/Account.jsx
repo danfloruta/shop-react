@@ -56,14 +56,18 @@ const Account = () => {
     <div className="flex flex-col min-h-screen">
       <h1 className="mx-auto font-bold m-4 text-2xl">My Account</h1>
       <FadeInMotion>
-        <div className="flex flex-wrap flex-row gap-4 justify-around">
-          <div className="m-2">
+        <div className="flex flex-wrap flex-row gap-4 justify-center ">
+          <div className=" pr-4 mr-2 max-w-screen">
             <h2 className="text-xl font-bold mb-2">Login</h2>
-            <form onSubmit={handleLogin} className="flex flex-col gap-2">
+            <form
+              onSubmit={handleLogin}
+              className="flex flex-col gap-2 max-w-screen"
+            >
               <div>
                 <input
                   type="email"
-                  className="rounded border sm:min-w-md"
+                  // className="rounded border max-w-md w-md"
+                  className="rounded border w-full sm:max-w-md"
                   placeholder="Email"
                   value={user}
                   onChange={(e) => setUser(e.target.value)}
@@ -78,7 +82,7 @@ const Account = () => {
               <div style={{ position: "relative" }}>
                 <input
                   type={seeSignIn ? "text" : "password"}
-                  className="rounded border sm:min-w-md"
+                  className="rounded border max-w-full w-md"
                   placeholder="Password"
                   value={password}
                   minLength={6}
@@ -94,7 +98,7 @@ const Account = () => {
                   }}
                   onClick={() => setSeeSignIn((prev) => (prev = !prev))}
                 >
-                  {seeSignIn ? <Visibility /> : <VisibilityOff />}
+                  {seeSignIn ? <VisibilityOff /> : <Visibility />}
                 </span>
                 {passwordTouched && password.length < 6 && (
                   <h6 className="text-red-500 text-xs font-bold">
@@ -126,9 +130,9 @@ const Account = () => {
               </Button>
             </form>
           </div>
-          <div className="m-2 ">
+          <div className="m-2 sm:max-w-6/12">
             <h2 className="text-xl font-bold mb-2">Sign Up</h2>
-            <p className="max-w-10/12">
+            <p className="max-w-md">
               Your personal data will be used to support your experience on this
               website, to manage access to your account, and for other purposes
               described in the privacy policy.
@@ -140,7 +144,7 @@ const Account = () => {
               <div>
                 <input
                   type="email"
-                  className="rounded border sm:min-w-md"
+                  className="rounded border w-full sm:max-w-md"
                   placeholder="Email"
                   onChange={(e) => setUserUp(e.target.value)}
                   value={userUp}
@@ -153,10 +157,10 @@ const Account = () => {
                 )}
               </div>
               <div>
-                <div className="relative max-w-[11.5rem] sm:max-w-md">
+                <div className="relative w-full sm:max-w-md">
                   <input
                     type={seeSignUp ? "text" : "password"}
-                    className="rounded border sm:min-w-md"
+                    className="rounded border w-full "
                     placeholder="Password"
                     value={passwordUp}
                     minLength={6}
